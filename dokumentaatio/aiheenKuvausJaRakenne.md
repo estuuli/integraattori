@@ -40,4 +40,5 @@ Laskija
 - antaa integrointirajat
 - näkee vastauksen
 
-
+## Luokkakaavio
+![Luokkakaavio](/luokkakaavio1.png)
