@@ -1,13 +1,19 @@
 ### Tuntikirjanpito
 Päivä | Tunnit | Kuvaus
 --------------- | ----- | ------
-17.01.2016 | 1h | Luento
-17.01.2016 | 0,5h | Aiheen suunnittelua
-18.01.2016 | 0,5h | Aiheen suunnittelua
-20.01.2016 | 1,5h | Repositorion, kansiorakenteen jne. luonti, aihemäärittelyn kirjoittaminen
-23.01.2016 | 0,5h | Ohjelman rakenteen ja funktioparserin pohtimista
-24.01.2016 | 1 h  | Funktioparserista lukemista
-26.01.2016 | 1,5h | Teknistä saatöä NB:n kanssa, funktioparserikokeiluja
-27.01.2016 | 3 h  | Ensimmäiset integraalialgoritmit, testauksen aloittaminen, dokumentaatio ajantasalle
- 
+17.01.2017 | 1h | Luento
+17.01.2017 | 0,5h | Aiheen suunnittelua
+18.01.2017 | 0,5h | Aiheen suunnittelua
+20.01.2017 | 1,5h | Repositorion, kansiorakenteen jne. luonti, aihemäärittelyn kirjoittaminen
+23.01.2017 | 0,5h | Ohjelman rakenteen ja funktioparserin pohtimista
+24.01.2017 | 1 h  | Funktioparserista lukemista
+26.01.2017 | 1,5h | Teknistä saatöä NB:n kanssa, funktioparserikokeiluja
+27.01.2017 | 3 h  | Ensimmäiset integraalialgoritmit, testauksen aloittaminen, dokumentaatio ajantasalle
+01.02.2017 | 0,5h | Integrointialgoritmien pyörittelyä
+03.02.2017 | 0,7h | Viime viikkoisen koodin sieventelyä ja nopeuttamista
+03.02.2017 | 1,0h | Puolisuunnikassäännön ohjelmointia
+03.02.2017 | 0,5h | Testien siirtelyä oikeisiin kansioihin yms. pit-säätöä
+03.02.2017 | 0.7h | Puolisuunnikassäännön viimeistelyä ja Simpsonin säännön toteutus
+03.02.2017 | 0,5h | Testejä
+03.02.2017 | 0,5h | Dokumentaation päivittämistä yms. 
 ... | ... | ...
