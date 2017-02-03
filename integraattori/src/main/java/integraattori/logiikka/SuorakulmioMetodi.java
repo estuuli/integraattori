@@ -9,8 +9,9 @@ public class SuorakulmioMetodi {
     private int askeliaAluksi;
     private int askeliaKorkeintaan;
     private double haluttuTarkkuus;
-    private String funktio;
+//    private String funktio;
     private double valiTulos;
+    private FunktionArvot ftionArvot;
 
     public SuorakulmioMetodi(String funktio, double alaraja, double ylaraja, int askeliaAluksi, int askeliaKorkeintaan, double haluttuTarkkuus) {
         this.alaraja = alaraja;
@@ -18,41 +19,44 @@ public class SuorakulmioMetodi {
         this.askeliaAluksi = askeliaAluksi;
         this.askeliaKorkeintaan = askeliaKorkeintaan;
         this.haluttuTarkkuus = haluttuTarkkuus;
-        this.funktio = funktio;
+//        this.funktio = funktio;
+        this.ftionArvot = ftionArvot = new FunktionArvot(funktio);
     }
 
-    private ArrayList<Double> pisteet(int askeltenMaara) {
-        ArrayList<Double> pisteet = new ArrayList<>();
-        double pituus = (this.ylaraja - this.alaraja) / askeltenMaara;
-        for (int i = 0; i <= askeltenMaara; i++) {
-            pisteet.add(i, alaraja + i * pituus);
-        }
-        return pisteet;
-    }
-
+//    private ArrayList<Double> pisteet(int askeltenMaara) {
+//        ArrayList<Double> pisteet = new ArrayList<>();
+//        double pituus = (this.ylaraja - this.alaraja) / askeltenMaara;
+//        for (int i = 0; i <= askeltenMaara; i++) {
+//            pisteet.add(i, alaraja + i * pituus);
+//        }
+//        return pisteet;
+//    }
     public double integraalinArvo(int askeltenMaara) {
-        FunktionArvot ftionArvot = new FunktionArvot(this.funktio);
-        ArrayList<Double> arvot = ftionArvot.laskeFunktionArvot(pisteet(askeltenMaara));
+
+//        ArrayList<Double> arvot = ftionArvot.laskeFunktionArvot(pisteet(askeltenMaara));
         double summa = 0;
-        for (int i = 0; i < arvot.size(); i++) {
-            summa += arvot.get(i);
+        double pituus = (this.ylaraja - this.alaraja) / askeltenMaara;
+        for (int i = 0; i < askeltenMaara; i++) {
+            summa += ftionArvot.funktionArvoPisteessa(alaraja + i * pituus);
         }
-        return (this.ylaraja - this.alaraja) / askeltenMaara * summa;
+        return pituus * summa;
     }
 
     public ArrayList<Double> iteroidaan() {
         valiTulos = integraalinArvo(this.askeliaAluksi);
 
-        int lkm = 0;
         double erotus = 1000000;
         int askelia = askeliaAluksi;
 
-        while (erotus > haluttuTarkkuus | lkm < askeliaKorkeintaan) {
+        while (erotus > haluttuTarkkuus) {
             double vanhaTulos = valiTulos;
             askelia = askelia * 2;
             valiTulos = integraalinArvo(askelia);
             erotus = Math.abs(valiTulos - vanhaTulos);
-            lkm++;
+
+            if (askelia > this.askeliaKorkeintaan) {
+                break;
+            }
         }
         ArrayList<Double> tulos = new ArrayList<>();
         tulos.add(valiTulos);
@@ -80,10 +84,7 @@ public class SuorakulmioMetodi {
         return haluttuTarkkuus;
     }
 
-    public String getFunktio() {
-        return funktio;
-    }
-    
-    
-
+//    public String getFunktio() {
+//        return funktio;
+//    }
 }
