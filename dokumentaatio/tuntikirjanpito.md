@@ -16,4 +16,7 @@ Päivä | Tunnit | Kuvaus
 03.02.2017 | 0.7h | Puolisuunnikassäännön viimeistelyä ja Simpsonin säännön toteutus
 03.02.2017 | 0,5h | Testejä
 03.02.2017 | 0,5h | Dokumentaation päivittämistä yms. 
+07.02.2017 | 0,5h | Lukemista epäoleellisten integraalien numeerisesta integroinnista
+10.02.2017 | 2,5h | Ohjelmointia, graafisen käyttöliittymän aloittelua ja dokumentaatiota
+
 ... | ... | ...
