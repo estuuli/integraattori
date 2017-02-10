@@ -1,4 +1,4 @@
-package integraattori.gui;
+package integraattori.ui;
 
 import integraattori.logiikka.PuolisuunnikasMetodi;
 import integraattori.logiikka.SimpsoninMetodi;

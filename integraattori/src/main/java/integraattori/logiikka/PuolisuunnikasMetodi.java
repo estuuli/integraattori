@@ -2,6 +2,10 @@ package integraattori.logiikka;
 
 import java.util.ArrayList;
 
+/**
+ * Luokka tarjoaa integraalien laskemiseen puolisuunnikasmetodilla tarvittavat
+ * metodit.
+ */
 public class PuolisuunnikasMetodi {
 
     double alaraja;
@@ -21,6 +25,13 @@ public class PuolisuunnikasMetodi {
         this.funktio = new FunktionArvot(funktio);
     }
 
+    /**
+     * Metodi laskee integraalin arvoa laskemalla funktion arvojen summaa
+     * pisteissä, jotka ovat askeleen välein, ja pienentää lopuksi askeleen
+     * pituuden puoleen.
+     *
+     * @return arvio integraalin arvolle
+     */
     public double integraalinArvo() {
         double summa = 0;
 
@@ -34,12 +45,15 @@ public class PuolisuunnikasMetodi {
         return arvo;
     }
 
+    /**
+     * Metodi laskee integraalin arvoa iteratiivisesti vertaamalla arvoa
+     * aiemmalla iteraatiolla laskettuun arvoon ja lopettaa laskemisen erotuksen
+     * ollessa tarpeeksi pieni.
+     *
+     * @return integraalin arvo ja laskun virhe
+     */
     public ArrayList<Double> laskeIntegraali() {
-        askeleenPituus = (this.ylaraja - this.alaraja);
-        arvo = (funktio.funktionArvoPisteessa(alaraja) + funktio.funktionArvoPisteessa(ylaraja)) * askeleenPituus / 2;
-
-        valiTulos = arvo;
-
+        valiTulos = alustaIntegrointi();
         double erotus = 1000000;
         int lkm = 0;
 
@@ -56,6 +70,16 @@ public class PuolisuunnikasMetodi {
         tulos.add(valiTulos);
         tulos.add(erotus);
         return tulos;
+    }
+
+    /**
+     * Metodi toteuttaa ennen ensimmäistä iteraatiota tarvittavat alustukset.
+     *
+     * @return ensimmäinen arvio integraalin arvolle
+     */
+    public double alustaIntegrointi() {
+        askeleenPituus = (this.ylaraja - this.alaraja);
+        return (funktio.funktionArvoPisteessa(alaraja) + funktio.funktionArvoPisteessa(ylaraja)) * askeleenPituus / 2;
     }
 
 }

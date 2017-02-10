@@ -2,6 +2,10 @@ package integraattori.logiikka;
 
 import java.util.ArrayList;
 
+/**
+ * Luokka tarjoaa integraalien laskemiseen suorakulmiometodilla tarvittavat
+ * metodit.
+ */
 public class SuorakulmioMetodi {
 
     private double alaraja;
@@ -9,7 +13,6 @@ public class SuorakulmioMetodi {
     private int askeliaAluksi;
     private int askeliaKorkeintaan;
     private double haluttuTarkkuus;
-//    private String funktio;
     private double valiTulos;
     private FunktionArvot ftionArvot;
 
@@ -19,18 +22,17 @@ public class SuorakulmioMetodi {
         this.askeliaAluksi = askeliaAluksi;
         this.askeliaKorkeintaan = askeliaKorkeintaan;
         this.haluttuTarkkuus = haluttuTarkkuus;
-//        this.funktio = funktio;
         this.ftionArvot = ftionArvot = new FunktionArvot(funktio);
     }
 
-//    private ArrayList<Double> pisteet(int askeltenMaara) {
-//        ArrayList<Double> pisteet = new ArrayList<>();
-//        double pituus = (this.ylaraja - this.alaraja) / askeltenMaara;
-//        for (int i = 0; i <= askeltenMaara; i++) {
-//            pisteet.add(i, alaraja + i * pituus);
-//        }
-//        return pisteet;
-//    }
+    /**
+     * Metodi laskee integraalin arvoa laskemalla funktion arvojen tasavälein
+     * olevissa pisteissä.
+     * 
+     * @param   askeltenMaara   Pisteiden lkm, joissa integraali lasketaan   
+     *
+     * @return arvio integraalin arvolle
+     */
     public double integraalinArvo(int askeltenMaara) {
 
 //        ArrayList<Double> arvot = ftionArvot.laskeFunktionArvot(pisteet(askeltenMaara));
@@ -42,6 +44,13 @@ public class SuorakulmioMetodi {
         return pituus * summa;
     }
 
+    /**
+     * Metodi laskee integraalin arvoa iteratiivisesti vertaamalla arvoa
+     * aiemmalla iteraatiolla laskettuun arvoon ja lopettaa laskemisen erotuksen
+     * ollessa tarpeeksi pieni.
+     *
+     * @return integraalin arvo ja laskun virhe
+     */
     public ArrayList<Double> iteroidaan() {
         valiTulos = integraalinArvo(this.askeliaAluksi);
 
@@ -84,7 +93,5 @@ public class SuorakulmioMetodi {
         return haluttuTarkkuus;
     }
 
-//    public String getFunktio() {
-//        return funktio;
-//    }
+
 }

@@ -2,6 +2,10 @@ package integraattori.logiikka;
 
 import java.util.ArrayList;
 
+/**
+ * Luokka tarjoaa integraalien laskemiseen Simpsonin metodilla tarvittavat
+ * metodit.
+ */
 public class SimpsoninMetodi extends PuolisuunnikasMetodi {
 
     private FunktionArvot funktio;
@@ -12,13 +16,16 @@ public class SimpsoninMetodi extends PuolisuunnikasMetodi {
         this.funktio = new FunktionArvot(funktio);
     }
 
+    /**
+     * Metodi laskee integraalin arvoa iteratiivisesti vertaamalla arvoa
+     * aiemmalla iteraatiolla laskettuun arvoon ja lopettaa laskemisen erotuksen
+     * ollessa tarpeeksi pieni.
+     *
+     * @return integraalin arvo ja laskun virhe
+     */
     @Override
-    public ArrayList<Double> laskeIntegraali() {
-        askeleenPituus = (this.ylaraja - this.alaraja);
-        arvo = (this.funktio.funktionArvoPisteessa(alaraja) + this.funktio.funktionArvoPisteessa(ylaraja)) * askeleenPituus / 2;
-
-        valiTulos = arvo;
-
+    public ArrayList<Double> laskeIntegraali() { 
+        valiTulos = alustaIntegrointi();
         double erotus = 1000000;
         int lkm = 0;
 
