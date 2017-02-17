@@ -14,7 +14,7 @@ public class AarettomienRajojenMuunnin {
     private String ylaraja;
     private String funktio;
 
-    public AarettomienRajojenMuunnin(String alaraja, String ylaraja, String funktio) {
+    public AarettomienRajojenMuunnin(String funktio, String alaraja, String ylaraja) {
         this.alaraja = alaraja;
         this.ylaraja = ylaraja;
         this.funktio = funktio;
@@ -44,9 +44,9 @@ public class AarettomienRajojenMuunnin {
             funktio = funktio.replaceAll("x", "(tan x)");
             funktio += "(1 + (tan x)*(tan x))";
         }
-        tulos.add(alaraja);
-        tulos.add(ylaraja);
         tulos.add(funktio);
+        tulos.add(alaraja);
+        tulos.add(ylaraja);        
         return tulos;
     }
 
