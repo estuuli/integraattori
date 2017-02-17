@@ -41,4 +41,4 @@ Laskija
 - näkee vastauksen
 
 ## Luokkakaavio
-![Luokkakaavio](/dokumentaatio/luokkakaavio1.png)
+![Luokkakaavio](/dokumentaatio/luokkakaavio3.png)
