@@ -1,20 +1,35 @@
 package integraattori.ui;
 
 import integraattori.logiikka.AarettomienRajojenMuunnin;
+import integraattori.logiikka.Funktio;
 import integraattori.logiikka.PuolisuunnikasMetodi;
 import integraattori.logiikka.SimpsoninMetodi;
 import integraattori.logiikka.SuorakulmioMetodi;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Komentorivikäyttöliittymäluokka.
+ *
+ * @author elina
+ */
 public class Kayttoliittyma {
 
     private Scanner lukija;
 
+    /**
+     * Luokan konstruktori.
+     *
+     */
     public Kayttoliittyma() {
         lukija = new Scanner(System.in);
     }
 
+    /**
+     * Metodi käynnistää käyttöliittymän, kysyy integroinnissa tarvittavia
+     * parametreja, kutsuu integroivaa metodia ja antaa vastauksen.
+     *
+     */
     public void kaynnista() {
 
         System.out.println("Tervetuloa integroimaan!");
@@ -41,38 +56,27 @@ public class Kayttoliittyma {
                     int askelia = Integer.parseInt(lukija.nextLine());
                     System.out.println("Anna haluttu tarkkuus: ");
                     double tarkkuus = Double.parseDouble(lukija.nextLine());
-                    //return new Funktio();
                     SuorakulmioMetodi integroi = new SuorakulmioMetodi(ftio, alaraja, ylaraja, askelia, 20, tarkkuus);
                     ArrayList<Double> vastaus = integroi.iteroidaan();
                     System.out.println(vastaus);
                     break;
                 case "2":
-//                    System.out.println("Anna funktio: ");
-                    String ftio2 = kysyFunktio();
-//                    System.out.println("Anna alaraja: ");
+                    Funktio ftio2 = kysyFunktio();
                     double alaraja2 = kysyAlaraja();
-//                    System.out.println("Anna yläraja: ");
                     double ylaraja2 = kysyYlaraja();
-//                    System.out.println("Anna haluttu tarkkuus: ");
                     double tarkkuus2 = kysyTarkkuus();
-//                    ArrayList<String> parametrit = kyseleParametrit();
-                    //return new Funktio();
+                    AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin(ftio2, alaraja2, ylaraja2);
+                    ArrayList<Double> muunnetut = muunnin.muunna();
 
-                    PuolisuunnikasMetodi psIntegroi = new PuolisuunnikasMetodi(ftio2, alaraja2, ylaraja2, 200, tarkkuus2);
+                    PuolisuunnikasMetodi psIntegroi = new PuolisuunnikasMetodi(ftio2, muunnetut.get(0), muunnetut.get(1), 200, tarkkuus2);
                     ArrayList<Double> vastaus2 = psIntegroi.laskeIntegraali();
                     System.out.println(vastaus2);
                     break;
                 case "3":
-//                    System.out.println("Anna funktio: ");
-                    String ftio3 = kysyFunktio();
-//                    System.out.println("Anna alaraja: ");
+                    Funktio ftio3 = kysyFunktio();
                     double alaraja3 = kysyAlaraja();
-//                    System.out.println("Anna yläraja: ");
                     double ylaraja3 = kysyYlaraja();
-//                    System.out.println("Anna haluttu tarkkuus: ");
                     double tarkkuus3 = kysyTarkkuus();
-                    //return new Funktio();
-////                    ArrayList<String> parametritS = kyseleParametrit();
                     SimpsoninMetodi simpsonIntegroi = new SimpsoninMetodi(ftio3, alaraja3, ylaraja3, 200, tarkkuus3);
                     ArrayList<Double> vastaus3 = simpsonIntegroi.laskeIntegraali();
                     System.out.println(vastaus3);
@@ -89,6 +93,12 @@ public class Kayttoliittyma {
 
     }
 
+    /**
+     * Metodi kysyy integroinnin alarajaa ja varmistaa, että annettu syöte on
+     * luku.
+     *
+     * @return alaraja doublena
+     */
     public double kysyAlaraja() {
         System.out.println("Anna alaraja: ");
         String luettu = lukija.nextLine();
@@ -99,7 +109,7 @@ public class Kayttoliittyma {
 
             if (luettu.equals("infinite")) {
                 alaraja = Double.POSITIVE_INFINITY;
-            } else if (luettu.equals("infinite")) {
+            } else if (luettu.equals("-infinite")) {
                 alaraja = Double.NEGATIVE_INFINITY;
             } else {
                 System.out.println("Antamasi alaraja ei ole luku!");
@@ -109,6 +119,12 @@ public class Kayttoliittyma {
         return alaraja;
     }
 
+    /**
+     * Metodi kysyy integroinnin ylarajaa ja varmistaa, että annettu syöte on
+     * luku.
+     *
+     * @return yläraja doublena
+     */
     public double kysyYlaraja() {
         System.out.println("Anna yläraja: ");
         String luettu = lukija.nextLine();
@@ -119,7 +135,7 @@ public class Kayttoliittyma {
 
             if (luettu.equals("infinite")) {
                 ylaraja = Double.POSITIVE_INFINITY;
-            } else if (luettu.equals("infinite")) {
+            } else if (luettu.equals("-infinite")) {
                 ylaraja = Double.NEGATIVE_INFINITY;
             } else {
                 System.out.println("Antamasi yläraja ei ole luku!");
@@ -129,6 +145,12 @@ public class Kayttoliittyma {
         return ylaraja;
     }
 
+    /**
+     * Metodi kysyy integroinnin haluttua tarkkuutta ja varmistaa, että annettu
+     * syöte on luku.
+     *
+     * @return tarkkuus doublena
+     */
     public double kysyTarkkuus() {
         System.out.println("Anna tarkkuus: ");
         String luettu = lukija.nextLine();
@@ -137,92 +159,30 @@ public class Kayttoliittyma {
             tarkkuus = Double.parseDouble(luettu);
         } catch (NumberFormatException e) {
 
-            if (luettu.equals("infinite")) {
-                tarkkuus = Double.POSITIVE_INFINITY;
-            } else if (luettu.equals("infinite")) {
-                tarkkuus = Double.NEGATIVE_INFINITY;
-            } else {
-                System.out.println("Antamasi tarkkuus ei ole luku!");
-                return kysyAlaraja();
-            }
+            System.out.println("Antamasi tarkkuus ei ole luku!");
+            return kysyAlaraja();
         }
         return tarkkuus;
     }
 
-    public String kysyFunktio() {
+    /**
+     * Metodi kysyy integroitavaa funktiota ja varmistaa, että funktio on
+     * määriteltävissä.
+     *
+     *
+     * @return funktio
+     */
+    public Funktio kysyFunktio() {
         System.out.println("Anna funktio: ");
         String ftio = lukija.nextLine();
-        return ftio;
+        Funktio funktio;
+        try {
+            funktio = new Funktio(ftio);
+        } catch (RuntimeException e) {
+            System.out.println("Antamasi funktio ei ole luettavissa!");
+            return kysyFunktio();
+        }
+        return funktio;
     }
 
-//    public ArrayList<String> kyseleParametrit() {
-//        boolean lukuja = true;
-//        System.out.println("Anna funktio: ");
-//        String ftio = lukija.nextLine();
-//
-//        System.out.println("Anna alaraja: ");
-//        String alaraja = lukija.nextLine();
-//        try {
-//            double alaraja2 = Double.parseDouble(alaraja);
-//        } catch (NumberFormatException e) {
-//            if (!(alaraja.equals("infinite") | alaraja.equals("-infinite"))) {
-//                System.out.println("Antamasi alaraja ei ole luku!");
-//            }
-//            lukuja = false;
-//        }
-//
-//        System.out.println("Anna yläraja: ");
-//        String ylaraja = lukija.nextLine();
-//        try {
-//            double ylaraja2 = Double.parseDouble(ylaraja);
-//        } catch (NumberFormatException e) {
-//            System.out.println("Antamasi yläraja ei ole luku!");
-//            lukuja = false;
-//
-//        }
-//
-//        System.out.println("Anna haluttu tarkkuus: ");
-//        String tarkkuus = lukija.nextLine();
-//        try {
-//            double tarkkuus2 = Double.parseDouble(lukija.nextLine());
-//        } catch (NumberFormatException e) {
-//            System.out.println("Antamasi tarkkuus ei ole luku!");
-//            lukuja = false;
-//        }
-//
-//        ArrayList<String> parametrit = new ArrayList<>();
-//        if (!lukuja) {
-//            AarettomienRajojenMuunnin testeri = new AarettomienRajojenMuunnin(ftio, alaraja, ylaraja);
-//            parametrit = testeri.muunna();
-//            parametrit.add(tarkkuus);
-//        } else {
-//            parametrit.add(ftio);
-//            parametrit.add(alaraja);
-//            parametrit.add(ylaraja);
-//            parametrit.add(tarkkuus);
-//        }
-//
-//        return parametrit;
-////        return new Funktio(ftio, alaraja, ylaraja, askelia, tarkkuus);
-//    }
-    public double onkoLuku(String syote) {
-        double arvo;
-        try {
-            arvo = Double.parseDouble(lukija.nextLine());
-        } catch (NumberFormatException e) {
-            if (syote.equals("infinite")) {
-                arvo = Double.POSITIVE_INFINITY;
-            } else if (syote.equals("-infinite")) {
-                arvo = Double.NEGATIVE_INFINITY;
-            } else if (syote.equals("-Math.PI/2")) {
-                arvo = -Math.PI / 2;
-            } else if (syote.equals("Math.PI/2")) {
-                arvo = Math.PI / 2;
-            } else {
-                System.out.println("Jokin antamasi parametri ei ole luku!");
-                arvo = Double.NaN;
-            }
-        }
-        return arvo;
-    }
 }

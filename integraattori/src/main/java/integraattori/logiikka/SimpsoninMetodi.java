@@ -8,12 +8,23 @@ import java.util.ArrayList;
  */
 public class SimpsoninMetodi extends PuolisuunnikasMetodi {
 
-    private FunktionArvot funktio;
+    private Funktio funktio;
     private double valiTulos;
 
-    public SimpsoninMetodi(String funktio, double alaraja, double ylaraja, int iteraatioitaKorkeintaan, double haluttuTarkkuus) {
+    /**
+     * Luokan konstruktori astettaa arvot alarajalle, ylärajalle, funktiolle, 
+     * iteraatioiden määrän ylärajalle ja tarkkuudelle.
+     *
+     * @param funktio käyttäjän antama funktio
+     * @param alaraja käyttäjän antama integroinnin alaraja
+     * @param ylaraja käyttäjän antama integroinnin yläraja
+     * @param iteraatioitaKorkeintaan iteraatioiden määrän yläraja
+     * @param haluttuTarkkuus käyttäjän antama integroinnin tarkkuus
+     *
+     */
+    public SimpsoninMetodi(Funktio funktio, double alaraja, double ylaraja, int iteraatioitaKorkeintaan, double haluttuTarkkuus) {
         super(funktio, alaraja, ylaraja, iteraatioitaKorkeintaan, haluttuTarkkuus);
-        this.funktio = new FunktionArvot(funktio);
+        this.funktio = funktio;
     }
 
     /**

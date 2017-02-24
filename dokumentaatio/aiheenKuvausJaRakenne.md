@@ -41,4 +41,11 @@ Laskija
 - näkee vastauksen
 
 ## Luokkakaavio
-![Luokkakaavio](/dokumentaatio/luokkakaavio3.png)
+![Luokkakaavio](/dokumentaatio/luokkakaavio4.png)
+
+## Sekvenssikaaviot
+**Laskija antaa integroitavan funktion:**
+![Sekvenssikaavio1](/dokumentaatio/funktionAntaminen.png)
+
+**Laskija antaa integrointirajat:**
+![Sekvenssikaavio2](/dokumentaatio/sekvenssikaavio2.png)

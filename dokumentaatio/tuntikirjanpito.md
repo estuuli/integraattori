@@ -19,4 +19,5 @@ Päivä | Tunnit | Kuvaus
 07.02.2017 | 0,5h | Lukemista epäoleellisten integraalien numeerisesta integroinnista
 10.02.2017 | 2,5h | Ohjelmointia, graafisen käyttöliittymän aloittelua ja dokumentaatiota
 17.02.2017 | 2,5h | Poikkeuksien ja äärettömien arvojen käsittelyn aloittamista, dokumentaatiota
+24.02.2017 | 4,5h | Poikkeuksien hoitoa, äärettömien arvojen käsittelyä, siivousta, dokumentaatiota
 ... | ... | ...

@@ -16,6 +16,18 @@ public class SuorakulmioMetodi {
     private double valiTulos;
     private FunktionArvot ftionArvot;
 
+    /**
+     * Luokan konstruktori astettaa arvot alarajalle, ylärajalle, funktiolle, 
+     * iteraatioiden määrän ylärajalle ja tarkkuudelle.
+     *
+     * @param funktio käyttäjän antama funktio
+     * @param alaraja käyttäjän antama integroinnin alaraja
+     * @param ylaraja käyttäjän antama integroinnin yläraja
+     * @param askeliaAluksi askelien määrän alkuarvo
+     * @param askeliaKorkeintaan askelien määrän yläraja
+     * @param haluttuTarkkuus käyttäjän antama integroinnin tarkkuus
+     *
+     */
     public SuorakulmioMetodi(String funktio, double alaraja, double ylaraja, int askeliaAluksi, int askeliaKorkeintaan, double haluttuTarkkuus) {
         this.alaraja = alaraja;
         this.ylaraja = ylaraja;

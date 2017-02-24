@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 /**
+ * Graafinen käyttöliittymä.
  *
  * @author elina
  */
@@ -24,6 +25,10 @@ public class GraafinenKayttis implements Runnable {
 
     private JFrame frame;
 
+    /**
+     * Luokan konstruktori.
+     *
+     */
     public GraafinenKayttis() {
     }
 
@@ -42,6 +47,10 @@ public class GraafinenKayttis implements Runnable {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Luo graafisen käyttöliittymän komponenetit.
+     *
+     */
     private void luoKomponentit(Container container) {
 
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);

@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  * @author elina
  */
 public class SimpsoninMetodiTest {
+    private Funktio funktio;
     
     public SimpsoninMetodiTest() {
     }
@@ -32,6 +33,7 @@ public class SimpsoninMetodiTest {
     
     @Before
     public void setUp() {
+         funktio = new Funktio("x");
     }
     
     @After
@@ -46,14 +48,14 @@ public class SimpsoninMetodiTest {
     
         @Test
     public void simpsoninMetodiLaskeeIntegraalinOikein() {
-        SimpsoninMetodi integ = new SimpsoninMetodi("x", 1.0, 2.0, 50, 0.001);
+        SimpsoninMetodi integ = new SimpsoninMetodi(funktio, 1.0, 2.0, 50, 0.001);
         ArrayList<Double> tulos = integ.laskeIntegraali();
         assertEquals(tulos.get(0), 1.5, 0.001);
     }
 
     @Test
     public void simpsoninMetodiLaskeeIntegraalinOikeallaTarkkuudella() {
-        SimpsoninMetodi integ = new SimpsoninMetodi("x", 1.0, 2.0, 50, 0.001);
+        SimpsoninMetodi integ = new SimpsoninMetodi(funktio, 1.0, 2.0, 50, 0.001);
         ArrayList<Double> tulos = integ.laskeIntegraali();
         assertTrue(tulos.get(1) < 0.001);
     }

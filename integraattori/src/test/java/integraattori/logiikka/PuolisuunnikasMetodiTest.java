@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  * @author elina
  */
 public class PuolisuunnikasMetodiTest {
+    private Funktio funktio;
 
     public PuolisuunnikasMetodiTest() {
     }
@@ -32,6 +33,7 @@ public class PuolisuunnikasMetodiTest {
 
     @Before
     public void setUp() {
+        funktio = new Funktio("x");
     }
 
     @After
@@ -45,14 +47,14 @@ public class PuolisuunnikasMetodiTest {
     // public void hello() {}
     @Test
     public void puolisuunnikasMetodiLaskeeIntegraalinOikein() {
-        PuolisuunnikasMetodi integ = new PuolisuunnikasMetodi("x", 1.0, 2.0, 50, 0.001);
+        PuolisuunnikasMetodi integ = new PuolisuunnikasMetodi(funktio, 1.0, 2.0, 50, 0.001);
         ArrayList<Double> tulos = integ.laskeIntegraali();
         assertEquals(tulos.get(0), 1.5, 0.001);
     }
 
     @Test
     public void puolisuunnikasMetodiLaskeeIntegraalinOikeallaTarkkuudella() {
-        PuolisuunnikasMetodi integ = new PuolisuunnikasMetodi("x", 1.0, 2.0, 50, 0.001);
+        PuolisuunnikasMetodi integ = new PuolisuunnikasMetodi(funktio, 1.0, 2.0, 50, 0.001);
         ArrayList<Double> tulos = integ.laskeIntegraali();
         assertTrue(tulos.get(1) < 0.001);
     }

@@ -13,16 +13,27 @@ public class PuolisuunnikasMetodi {
     int iteraatioitaKorkeintaan;
     double haluttuTarkkuus;
     private double valiTulos;
-    private FunktionArvot funktio;
+    private Funktio funktio;
     double askeleenPituus;
     double arvo;
 
-    public PuolisuunnikasMetodi(String funktio, double alaraja, double ylaraja, int iteraatioitaKorkeintaan, double haluttuTarkkuus) {
+    /**
+     * Luokan konstruktori astettaa arvot alarajalle, ylärajalle, funktiolle, 
+     * iteraatioiden määrän ylärajalle ja tarkkuudelle.
+     *
+     * @param funktio käyttäjän antama funktio
+     * @param alaraja käyttäjän antama integroinnin alaraja
+     * @param ylaraja käyttäjän antama integroinnin yläraja
+     * @param iteraatioitaKorkeintaan iteraatioiden määrän yläraja
+     * @param haluttuTarkkuus käyttäjän antama integroinnin tarkkuus
+     *
+     */
+    public PuolisuunnikasMetodi(Funktio funktio, double alaraja, double ylaraja, int iteraatioitaKorkeintaan, double haluttuTarkkuus) {
         this.alaraja = alaraja;
         this.ylaraja = ylaraja;
         this.iteraatioitaKorkeintaan = iteraatioitaKorkeintaan;
         this.haluttuTarkkuus = haluttuTarkkuus;
-        this.funktio = new FunktionArvot(funktio);
+        this.funktio = funktio;
     }
 
     /**

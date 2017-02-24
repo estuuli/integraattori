@@ -10,6 +10,8 @@ import org.junit.Test;
 
 public class AarettomienRajojenMuunninTest {
 
+    private Funktio funktio;
+
     public AarettomienRajojenMuunninTest() {
     }
 
@@ -23,6 +25,7 @@ public class AarettomienRajojenMuunninTest {
 
     @Before
     public void setUp() {
+        funktio = new Funktio("x");
     }
 
     @After
@@ -36,28 +39,28 @@ public class AarettomienRajojenMuunninTest {
     // public void hello() {}
     @Test
     public void muuntaaAarettomanAlarajanOikein() {
-        AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin("x", "-infinite", "0");
-        ArrayList<String> tulos = muunnin.muunna();
-        assertEquals(tulos.get(1), "-Math.PI/2");
-        assertEquals(tulos.get(2), "0");
-        assertEquals(tulos.get(0), "(tan x)(1 + (tan x)*(tan x))");
+        AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin(funktio, Double.NEGATIVE_INFINITY, 0);
+        ArrayList<Double> tulos = muunnin.muunna();
+        assertEquals(tulos.get(0), -Math.PI / 2, 0.0001);
+        assertEquals(tulos.get(1), 0, 0.0001);
+        assertEquals(funktio.getFunktionNimi(), "(tan x)(1 + (tan x)*(tan x))");
     }
 
     @Test
     public void muuntaaAarettomanYlarajanOikein() {
-        AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin("x", "0", "infinite");
-        ArrayList<String> tulos = muunnin.muunna();
-        assertEquals(tulos.get(1), "0");
-        assertEquals(tulos.get(2), "Math.PI/2");
-        assertEquals(tulos.get(0), "(tan x)(1 + (tan x)*(tan x))");
+        AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin(funktio, 0, Double.POSITIVE_INFINITY);
+        ArrayList<Double> tulos = muunnin.muunna();
+        assertEquals(tulos.get(0), 0, 0.00001);
+        assertEquals(tulos.get(1), Math.PI / 2, 0.0001);
+        assertEquals(funktio.getFunktionNimi(), "(tan x)(1 + (tan x)*(tan x))");
     }
 
     @Test
     public void muuntaaAarettomatRajatOikein() {
-        AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin("x", "-infinite", "infinite");
-        ArrayList<String> tulos = muunnin.muunna();
-        assertEquals(tulos.get(1), "-Math.PI/2");
-        assertEquals(tulos.get(2), "Math.PI/2");
-        assertEquals(tulos.get(0), "(tan x)(1 + (tan x)*(tan x))");
+        AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin(funktio, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+        ArrayList<Double> tulos = muunnin.muunna();
+        assertEquals(tulos.get(0), -Math.PI / 2, 0.00001);
+        assertEquals(tulos.get(1), Math.PI / 2, 0.00001);
+        assertEquals(funktio.getFunktionNimi(), "(tan x)(1 + (tan x)*(tan x))");
     }
 }
