@@ -48,4 +48,4 @@ Laskija
 ![Sekvenssikaavio1](/dokumentaatio/funktionAntaminen.png)
 
 **Laskija antaa integrointirajat:**
-![Sekvenssikaavio2](/dokumentaatio/sekvenssikaavio2.png)
+![Sekvenssikaavio2](/dokumentaatio/kayttotapaus2.png)
