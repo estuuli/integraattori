@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi_FI" lang="fi_FI">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>PuolisuunnikasMetodi xref</title>
+<link type="text/css" rel="stylesheet" href="../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../apidocs/integraattori/logiikka/PuolisuunnikasMetodi.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> integraattori.logiikka;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.ArrayList;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> * Luokka tarjoaa integraalien laskemiseen puolisuunnikasmetodilla tarvittavat</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> * metodit.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../integraattori/logiikka/PuolisuunnikasMetodi.html">PuolisuunnikasMetodi</a> {
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>      <strong class="jxr_keyword">double</strong> alaraja;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>      <strong class="jxr_keyword">double</strong> ylaraja;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      <strong class="jxr_keyword">int</strong> iteraatioitaKorkeintaan;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>      <strong class="jxr_keyword">double</strong> haluttuTarkkuus;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> valiTulos;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <strong class="jxr_keyword">private</strong> <a href="../../integraattori/logiikka/Funktio.html">Funktio</a> funktio;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>      <strong class="jxr_keyword">double</strong> askeleenPituus;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      <strong class="jxr_keyword">double</strong> arvo;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">     * Luokan konstruktori astettaa arvot alarajalle, ylärajalle, funktiolle, </em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     * iteraatioiden määrän ylärajalle ja tarkkuudelle.</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * @param funktio käyttäjän antama funktio</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     * @param alaraja käyttäjän antama integroinnin alaraja</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     * @param ylaraja käyttäjän antama integroinnin yläraja</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">     * @param iteraatioitaKorkeintaan iteraatioiden määrän yläraja</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">     * @param haluttuTarkkuus käyttäjän antama integroinnin tarkkuus</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">public</strong> <a href="../../integraattori/logiikka/PuolisuunnikasMetodi.html">PuolisuunnikasMetodi</a>(<a href="../../integraattori/logiikka/Funktio.html">Funktio</a> funktio, <strong class="jxr_keyword">double</strong> alaraja, <strong class="jxr_keyword">double</strong> ylaraja, <strong class="jxr_keyword">int</strong> iteraatioitaKorkeintaan, <strong class="jxr_keyword">double</strong> haluttuTarkkuus) {
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <strong class="jxr_keyword">this</strong>.alaraja = alaraja;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">this</strong>.ylaraja = ylaraja;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          <strong class="jxr_keyword">this</strong>.iteraatioitaKorkeintaan = iteraatioitaKorkeintaan;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          <strong class="jxr_keyword">this</strong>.haluttuTarkkuus = haluttuTarkkuus;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          <strong class="jxr_keyword">this</strong>.funktio = funktio;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      }
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment">     * Metodi laskee integraalin arvoa laskemalla funktion arvojen summaa</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment">     * pisteissä, jotka ovat askeleen välein, ja pienentää lopuksi askeleen</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment">     * pituuden puoleen.</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">     * @return arvio integraalin arvolle</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> integraalinArvo() {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          <strong class="jxr_keyword">double</strong> summa = 0;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <strong class="jxr_keyword">double</strong> paikka = alaraja + 0.5 * askeleenPituus;
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">while</strong> (paikka &lt; ylaraja) {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>              summa += funktio.funktionArvoPisteessa(paikka);
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              paikka += askeleenPituus;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          }
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          arvo = (askeleenPituus * summa + arvo) / 2;
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          askeleenPituus /= 2;
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          <strong class="jxr_keyword">return</strong> arvo;
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      }
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment">     * Metodi laskee integraalin arvoa iteratiivisesti vertaamalla arvoa</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_javadoccomment">     * aiemmalla iteraatiolla laskettuun arvoon ja lopettaa laskemisen erotuksen</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_javadoccomment">     * ollessa tarpeeksi pieni.</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment">     * @return integraalin arvo ja laskun virhe</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">public</strong> ArrayList&lt;Double&gt; laskeIntegraali() {
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          valiTulos = alustaIntegrointi();
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">double</strong> erotus = 1000000;
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          <strong class="jxr_keyword">int</strong> lkm = 0;
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <strong class="jxr_keyword">while</strong> (erotus &gt; haluttuTarkkuus | lkm &lt; 3) {
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              <strong class="jxr_keyword">double</strong> vanhaTulos = valiTulos;
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>              valiTulos = integraalinArvo();
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>              erotus = Math.abs(valiTulos - vanhaTulos);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>              lkm++;
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>              <strong class="jxr_keyword">if</strong> (lkm &gt; iteraatioitaKorkeintaan) {
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              }
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          }
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          ArrayList&lt;Double&gt; tulos = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          tulos.add(valiTulos);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          tulos.add(erotus);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          <strong class="jxr_keyword">return</strong> tulos;
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      }
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  <em class="jxr_javadoccomment">     * Metodi toteuttaa ennen ensimmäistä iteraatiota tarvittavat alustukset.</em>
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  <em class="jxr_javadoccomment">     * @return ensimmäinen arvio integraalin arvolle</em>
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> alustaIntegrointi() {
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          askeleenPituus = (<strong class="jxr_keyword">this</strong>.ylaraja - <strong class="jxr_keyword">this</strong>.alaraja);
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          <strong class="jxr_keyword">return</strong> (funktio.funktionArvoPisteessa(alaraja) + funktio.funktionArvoPisteessa(ylaraja)) * askeleenPituus / 2;
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      }
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2017. All rights reserved.</div>
+</body>
+</html>
