@@ -26,8 +26,7 @@ public class Kayttoliittyma {
     }
 
     /**
-     * Metodi käynnistää käyttöliittymän, kysyy integroinnissa tarvittavia
-     * parametreja, kutsuu integroivaa metodia ja antaa vastauksen.
+     * Metodi käynnistää käyttöliittymän, kysyy integroinnissa tarvittavia parametreja, kutsuu integroivaa metodia ja antaa vastauksen.
      *
      */
     public void kaynnista() {
@@ -107,16 +106,13 @@ public class Kayttoliittyma {
                 default:
                     System.out.println("En tunne annettua komentoa: " + komento + ". Yritä uudelleen.");
                     break;
-
             }
             System.out.println("");
         }
-
     }
 
     /**
-     * Metodi kysyy integroinnin alarajaa ja varmistaa, että annettu syöte on
-     * luku.
+     * Metodi kysyy integroinnin alarajaa ja varmistaa, että annettu syöte on luku.
      *
      * @return alaraja doublena
      */
@@ -141,8 +137,7 @@ public class Kayttoliittyma {
     }
 
     /**
-     * Metodi kysyy integroinnin ylarajaa ja varmistaa, että annettu syöte on
-     * luku.
+     * Metodi kysyy integroinnin ylarajaa ja varmistaa, että annettu syöte on luku.
      *
      * @return yläraja doublena
      */
@@ -167,8 +162,7 @@ public class Kayttoliittyma {
     }
 
     /**
-     * Metodi kysyy integroinnin haluttua tarkkuutta ja varmistaa, että annettu
-     * syöte on luku.
+     * Metodi kysyy integroinnin haluttua tarkkuutta ja varmistaa, että annettu syöte on luku.
      *
      * @return tarkkuus doublena
      */
@@ -187,9 +181,7 @@ public class Kayttoliittyma {
     }
 
     /**
-     * Metodi kysyy integroitavaa funktiota ja varmistaa, että funktio on
-     * määriteltävissä.
-     *
+     * Metodi kysyy integroitavaa funktiota ja varmistaa, että funktio on määriteltävissä.
      *
      * @return funktio
      */
@@ -205,5 +197,4 @@ public class Kayttoliittyma {
         }
         return funktio;
     }
-
 }

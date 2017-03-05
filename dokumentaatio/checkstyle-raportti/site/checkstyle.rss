@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 9,
-             Errors: 1,
+      <title>File: 11,
+             Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
@@ -144,6 +144,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#integraattori.gui.MetodinValinnanKuuntelija.java">integraattori/gui/MetodinValinnanKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#integraattori.logiikka.SimpsoninMetodi.java">integraattori/logiikka/SimpsoninMetodi.java</a>
                 </td>
                 <td>
@@ -167,7 +181,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#integraattori.gui.ParametrienLisaysKuuntelija.java">integraattori/gui/ParametrienLisaysKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                       </tbody>

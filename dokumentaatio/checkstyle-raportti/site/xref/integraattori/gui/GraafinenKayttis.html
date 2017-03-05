@@ -65,60 +65,78 @@
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>          container.setLayout(layout);
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>          container.add(<strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Valitse käytettävä integrointimenetelmä:"</span>));
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>  
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>          JRadioButton kulmio = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Suorakulmiometodi"</span>);
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>          JRadioButton suunnikas = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Puolisuunnikasmetodi"</span>);
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>          JRadioButton simpson = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Simpsonin metodi"</span>);
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>          ButtonGroup buttonGroup = <strong class="jxr_keyword">new</strong> ButtonGroup();
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>          buttonGroup.add(kulmio);
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>          buttonGroup.add(suunnikas);
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          buttonGroup.add(simpson);
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          JLabel funktioTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Funktio: "</span>);
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>          JTextField funktioKentta = <strong class="jxr_keyword">new</strong> JTextField();
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>          JLabel muuttujaTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Muuttuja: "</span>);
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>          JTextField muuttujaKentta = <strong class="jxr_keyword">new</strong> JTextField();
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>          JLabel alarajaTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Alaraja: "</span>);
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>          JTextField alarajaKentta = <strong class="jxr_keyword">new</strong> JTextField();
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>          JLabel ylarajaTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Yläraja: "</span>);
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>          JTextField ylarajaKentta = <strong class="jxr_keyword">new</strong> JTextField();
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>          JLabel tarkkuusTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Haluttu tarkkuus: "</span>);
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>          JTextField tarkkuusKentta = <strong class="jxr_keyword">new</strong> JTextField();
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>          JButton integroijaNappi = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Integroi!"</span>);
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>          JLabel tulosTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Tulos: "</span>);
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>          JTextField tulosKentta = <strong class="jxr_keyword">new</strong> JTextField();
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>          JLabel virheTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Virhe: "</span>);
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>          JTextField virheKentta = <strong class="jxr_keyword">new</strong> JTextField();
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>  
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>          container.add(kulmio);
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>          container.add(suunnikas);
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>          container.add(simpson);
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>          container.add(funktioTeksti);
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>          container.add(funktioKentta);
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>          container.add(muuttujaTeksti);
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>          container.add(muuttujaKentta);
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>          container.add(alarajaTeksti);
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>          container.add(alarajaKentta);
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>          container.add(ylarajaTeksti);
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>          container.add(ylarajaKentta);
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>          container.add(tarkkuusTeksti);
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>         container.add(tarkkuusKentta);
-<a class="jxr_linenumber" name="L101" href="#L101">101</a>         container.add(integroijaNappi);
-<a class="jxr_linenumber" name="L102" href="#L102">102</a> 
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>         container.add(tulosTeksti);
-<a class="jxr_linenumber" name="L104" href="#L104">104</a>         container.add(tulosKentta);
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>         container.add(virheTeksti);
-<a class="jxr_linenumber" name="L106" href="#L106">106</a>         container.add(virheKentta);
-<a class="jxr_linenumber" name="L107" href="#L107">107</a>     }
-<a class="jxr_linenumber" name="L108" href="#L108">108</a> 
-<a class="jxr_linenumber" name="L109" href="#L109">109</a>     <strong class="jxr_keyword">public</strong> JFrame getFrame() {
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>         <strong class="jxr_keyword">return</strong> frame;
-<a class="jxr_linenumber" name="L111" href="#L111">111</a>     }
-<a class="jxr_linenumber" name="L112" href="#L112">112</a> 
-<a class="jxr_linenumber" name="L113" href="#L113">113</a> }
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          <a href="../../integraattori/gui/MetodinValinnanKuuntelija.html">MetodinValinnanKuuntelija</a> metodiKuuntelija = <strong class="jxr_keyword">new</strong> <a href="../../integraattori/gui/MetodinValinnanKuuntelija.html">MetodinValinnanKuuntelija</a>();
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_comment">//        JRadioButton kulmio = new JRadioButton("Suorakulmiometodi");</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_comment">//        kulmio.setActionCommand("suorakulmio");</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_comment">//        kulmio.addActionListener(metodiKuuntelija);</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          JRadioButton suunnikas = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Puolisuunnikasmetodi"</span>);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          suunnikas.setActionCommand(<span class="jxr_string">"puolisuunnikas"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          suunnikas.addActionListener(metodiKuuntelija);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          JRadioButton simpson = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Simpsonin metodi"</span>);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          simpson.setActionCommand(<span class="jxr_string">"simpson"</span>);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          simpson.addActionListener(metodiKuuntelija);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <em class="jxr_comment">//simpson.setSelected(true);</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          ButtonGroup buttonGroup = <strong class="jxr_keyword">new</strong> ButtonGroup();
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  <em class="jxr_comment">//        buttonGroup.add(kulmio);</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          buttonGroup.add(suunnikas);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          buttonGroup.add(simpson);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          JLabel funktioTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Funktio: "</span>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          JTextField funktioKentta = <strong class="jxr_keyword">new</strong> JTextField();
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_comment">//        JLabel muuttujaTeksti = new JLabel("Muuttuja: ");</em>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_comment">//        JTextField muuttujaKentta = new JTextField();</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          JLabel alarajaTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Alaraja: "</span>);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          JTextField alarajaKentta = <strong class="jxr_keyword">new</strong> JTextField();
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          JLabel ylarajaTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Yläraja: "</span>);
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          JTextField ylarajaKentta = <strong class="jxr_keyword">new</strong> JTextField();
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          JLabel tarkkuusTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Haluttu tarkkuus: "</span>);
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          JTextField tarkkuusKentta = <strong class="jxr_keyword">new</strong> JTextField();
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          JLabel virheilmoitusTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Virheilmoitus: "</span>);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          JTextField virheilmoitusKentta = <strong class="jxr_keyword">new</strong> JTextField();
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          JButton integroijaNappi = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Integroi!"</span>);       
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          JLabel tulosTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Tulos: "</span>);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          JTextField tulosKentta = <strong class="jxr_keyword">new</strong> JTextField();
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          JLabel virheTeksti = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Virhe: "</span>);
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>          JTextField virheKentta = <strong class="jxr_keyword">new</strong> JTextField();
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         <a href="../../integraattori/gui/ParametrienLisaysKuuntelija.html">ParametrienLisaysKuuntelija</a> parametriKuuntelija = <strong class="jxr_keyword">new</strong> <a href="../../integraattori/gui/ParametrienLisaysKuuntelija.html">ParametrienLisaysKuuntelija</a>(funktioKentta, alarajaKentta, ylarajaKentta, tarkkuusKentta, virheilmoitusKentta, tulosKentta, virheKentta, metodiKuuntelija);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         integroijaNappi.addActionListener(parametriKuuntelija);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>         
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_comment">//        container.add(kulmio);</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         container.add(suunnikas);
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         container.add(simpson);
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         container.add(funktioTeksti);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>         container.add(funktioKentta);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_comment">//        container.add(muuttujaTeksti);</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> <em class="jxr_comment">//        container.add(muuttujaKentta);</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         container.add(alarajaTeksti);
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         container.add(alarajaKentta);
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         container.add(ylarajaTeksti);
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         container.add(ylarajaKentta);
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         container.add(tarkkuusTeksti);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         container.add(tarkkuusKentta);
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         container.add(integroijaNappi);
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         container.add(virheilmoitusTeksti);
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>         container.add(virheilmoitusKentta);
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> 
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>         container.add(tulosTeksti);
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>         container.add(tulosKentta);
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>         container.add(virheTeksti);
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>         container.add(virheKentta);
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>     }
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> 
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>     <strong class="jxr_keyword">public</strong> JFrame getFrame() {
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>         <strong class="jxr_keyword">return</strong> frame;
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>     }
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>
