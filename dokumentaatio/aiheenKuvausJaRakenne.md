@@ -50,4 +50,4 @@ Laskija
 
 **Laskija näkee vastauksen:**
 
-![Sekvenssikaavio2](/dokumentaatio/Sekvenssikaavio_vastaus.png)
+![Sekvenssikaavio2](/dokumentaatio/Sekvenssikaavio_vastaus.jpg)
