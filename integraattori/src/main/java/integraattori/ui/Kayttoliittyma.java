@@ -56,30 +56,51 @@ public class Kayttoliittyma {
                     int askelia = Integer.parseInt(lukija.nextLine());
                     System.out.println("Anna haluttu tarkkuus: ");
                     double tarkkuus = Double.parseDouble(lukija.nextLine());
-                    SuorakulmioMetodi integroi = new SuorakulmioMetodi(ftio, alaraja, ylaraja, askelia, 20, tarkkuus);
-                    ArrayList<Double> vastaus = integroi.iteroidaan();
-                    System.out.println(vastaus);
+                    try {
+                        SuorakulmioMetodi integroi = new SuorakulmioMetodi(ftio, alaraja, ylaraja, askelia, 20, tarkkuus);
+                        ArrayList<Double> vastaus = integroi.iteroidaan();
+                        System.out.println(vastaus);
+                        if (vastaus.get(0) > 1000000) {
+                            System.out.println("On mahdollista, että integraali hajaantuu.");
+                        }
+                    } catch (RuntimeException e) {
+                        System.out.println("Jotain meni pieleen, yritä uudelleen.");
+                    }
                     break;
                 case "2":
                     Funktio ftio2 = kysyFunktio();
                     double alaraja2 = kysyAlaraja();
                     double ylaraja2 = kysyYlaraja();
                     double tarkkuus2 = kysyTarkkuus();
-                    AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin(ftio2, alaraja2, ylaraja2);
-                    ArrayList<Double> muunnetut = muunnin.muunna();
+                    try {
+                        AarettomienRajojenMuunnin muunnin = new AarettomienRajojenMuunnin(ftio2, alaraja2, ylaraja2);
+                        ArrayList<Double> muunnetut = muunnin.muunna();
 
-                    PuolisuunnikasMetodi psIntegroi = new PuolisuunnikasMetodi(ftio2, muunnetut.get(0), muunnetut.get(1), 200, tarkkuus2);
-                    ArrayList<Double> vastaus2 = psIntegroi.laskeIntegraali();
-                    System.out.println(vastaus2);
+                        PuolisuunnikasMetodi psIntegroi = new PuolisuunnikasMetodi(ftio2, muunnetut.get(0), muunnetut.get(1), 25, tarkkuus2);
+                        ArrayList<Double> vastaus2 = psIntegroi.laskeIntegraali();
+                        System.out.println(vastaus2);
+                        if (vastaus2.get(0) > 1000000) {
+                            System.out.println("On mahdollista, että integraali hajaantuu.");
+                        }
+                    } catch (RuntimeException e) {
+                        System.out.println("Jotain meni pieleen, yritä uudelleen.");
+                    }
                     break;
                 case "3":
                     Funktio ftio3 = kysyFunktio();
                     double alaraja3 = kysyAlaraja();
                     double ylaraja3 = kysyYlaraja();
                     double tarkkuus3 = kysyTarkkuus();
-                    SimpsoninMetodi simpsonIntegroi = new SimpsoninMetodi(ftio3, alaraja3, ylaraja3, 200, tarkkuus3);
-                    ArrayList<Double> vastaus3 = simpsonIntegroi.laskeIntegraali();
-                    System.out.println(vastaus3);
+                    try {
+                        SimpsoninMetodi simpsonIntegroi = new SimpsoninMetodi(ftio3, alaraja3, ylaraja3, 25, tarkkuus3);
+                        ArrayList<Double> vastaus3 = simpsonIntegroi.laskeIntegraali();
+                        System.out.println(vastaus3);
+                        if (vastaus3.get(0) > 1000000) {
+                            System.out.println("On mahdollista, että integraali hajaantuu.");
+                        }
+                    } catch (RuntimeException e) {
+                        System.out.println("Jotain meni pieleen, yritä uudelleen.");
+                    }
                     break;
                 case "X":
                     break luuppi;
