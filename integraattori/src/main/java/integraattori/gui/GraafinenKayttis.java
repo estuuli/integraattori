@@ -57,41 +57,57 @@ public class GraafinenKayttis implements Runnable {
         container.setLayout(layout);
 
         container.add(new JLabel("Valitse käytettävä integrointimenetelmä:"));
-
-        JRadioButton kulmio = new JRadioButton("Suorakulmiometodi");
+        
+        MetodinValinnanKuuntelija metodiKuuntelija = new MetodinValinnanKuuntelija();
+        
+//        JRadioButton kulmio = new JRadioButton("Suorakulmiometodi");
+//        kulmio.setActionCommand("suorakulmio");
+//        kulmio.addActionListener(metodiKuuntelija);
         JRadioButton suunnikas = new JRadioButton("Puolisuunnikasmetodi");
+        suunnikas.setActionCommand("puolisuunnikas");
+        suunnikas.addActionListener(metodiKuuntelija);
         JRadioButton simpson = new JRadioButton("Simpsonin metodi");
+        simpson.setActionCommand("simpson");
+        simpson.addActionListener(metodiKuuntelija);
+        //simpson.setSelected(true);
 
         ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(kulmio);
+//        buttonGroup.add(kulmio);
         buttonGroup.add(suunnikas);
         buttonGroup.add(simpson);
 
         JLabel funktioTeksti = new JLabel("Funktio: ");
         JTextField funktioKentta = new JTextField();
-        JLabel muuttujaTeksti = new JLabel("Muuttuja: ");
-        JTextField muuttujaKentta = new JTextField();
+//        JLabel muuttujaTeksti = new JLabel("Muuttuja: ");
+//        JTextField muuttujaKentta = new JTextField();
         JLabel alarajaTeksti = new JLabel("Alaraja: ");
         JTextField alarajaKentta = new JTextField();
         JLabel ylarajaTeksti = new JLabel("Yläraja: ");
         JTextField ylarajaKentta = new JTextField();
         JLabel tarkkuusTeksti = new JLabel("Haluttu tarkkuus: ");
         JTextField tarkkuusKentta = new JTextField();
+        JLabel virheilmoitusTeksti = new JLabel("Virheilmoitus: ");
+        JTextField virheilmoitusKentta = new JTextField();
 
-        JButton integroijaNappi = new JButton("Integroi!");
+        
+        
+        JButton integroijaNappi = new JButton("Integroi!");       
 
         JLabel tulosTeksti = new JLabel("Tulos: ");
         JTextField tulosKentta = new JTextField();
         JLabel virheTeksti = new JLabel("Virhe: ");
         JTextField virheKentta = new JTextField();
 
-        container.add(kulmio);
+        ParametrienLisaysKuuntelija parametriKuuntelija = new ParametrienLisaysKuuntelija(funktioKentta, alarajaKentta, ylarajaKentta, tarkkuusKentta, virheilmoitusKentta, tulosKentta, virheKentta, metodiKuuntelija);
+        integroijaNappi.addActionListener(parametriKuuntelija);
+        
+//        container.add(kulmio);
         container.add(suunnikas);
         container.add(simpson);
         container.add(funktioTeksti);
         container.add(funktioKentta);
-        container.add(muuttujaTeksti);
-        container.add(muuttujaKentta);
+//        container.add(muuttujaTeksti);
+//        container.add(muuttujaKentta);
         container.add(alarajaTeksti);
         container.add(alarajaKentta);
         container.add(ylarajaTeksti);
@@ -99,6 +115,8 @@ public class GraafinenKayttis implements Runnable {
         container.add(tarkkuusTeksti);
         container.add(tarkkuusKentta);
         container.add(integroijaNappi);
+        container.add(virheilmoitusTeksti);
+        container.add(virheilmoitusKentta);
 
         container.add(tulosTeksti);
         container.add(tulosKentta);

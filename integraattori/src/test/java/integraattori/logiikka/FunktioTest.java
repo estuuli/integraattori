@@ -98,4 +98,29 @@ public class FunktioTest {
         res = e.validate();
         assertTrue(res.isValid());
     }
+    
+    @Test
+    public void muuttaaFunktionOikein() {
+        Funktio siniFunktio = new Funktio("sin x");
+        Expression kosiniFunktio = new ExpressionBuilder("cos x")
+                .variable("x")
+                .build();
+        
+        siniFunktio.setFunktio(kosiniFunktio);
+        
+        double vastaus = siniFunktio.funktionArvoPisteessa(0);
+        assertEquals(1.0, vastaus, 0.00001);        
+    }
+    
+    @Test
+    public void palauttaaOikeanFunktion() {
+        Funktio siniFunktio = new Funktio("sin x");
+        Expression e = siniFunktio.getFunktio();
+        
+        e.setVariable("x", 0);
+        assertEquals(0.0, e. evaluate(), 0.001);
+        
+        e.setVariable("x", Math.PI/2);
+        assertEquals(1.0, e. evaluate(), 0.001);
+    }
 }

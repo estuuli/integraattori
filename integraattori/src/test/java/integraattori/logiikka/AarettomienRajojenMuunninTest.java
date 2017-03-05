@@ -43,7 +43,7 @@ public class AarettomienRajojenMuunninTest {
         ArrayList<Double> tulos = muunnin.muunna();
         assertEquals(tulos.get(0), -Math.PI / 2, 0.0001);
         assertEquals(tulos.get(1), 0, 0.0001);
-        assertEquals(funktio.getFunktionNimi(), "(tan x)(1 + (tan x)*(tan x))");
+        assertEquals(funktio.getFunktionNimi(), "(tan x)*(1 + (tan x)*(tan x))");
     }
 
     @Test
@@ -52,7 +52,7 @@ public class AarettomienRajojenMuunninTest {
         ArrayList<Double> tulos = muunnin.muunna();
         assertEquals(tulos.get(0), 0, 0.00001);
         assertEquals(tulos.get(1), Math.PI / 2, 0.0001);
-        assertEquals(funktio.getFunktionNimi(), "(tan x)(1 + (tan x)*(tan x))");
+        assertEquals(funktio.getFunktionNimi(), "(tan x)*(1 + (tan x)*(tan x))");
     }
 
     @Test
@@ -61,6 +61,6 @@ public class AarettomienRajojenMuunninTest {
         ArrayList<Double> tulos = muunnin.muunna();
         assertEquals(tulos.get(0), -Math.PI / 2, 0.00001);
         assertEquals(tulos.get(1), Math.PI / 2, 0.00001);
-        assertEquals(funktio.getFunktionNimi(), "(tan x)(1 + (tan x)*(tan x))");
+        assertEquals(funktio.getFunktionNimi(), "(tan x)*(1 + (tan x)*(tan x))");
     }
 }

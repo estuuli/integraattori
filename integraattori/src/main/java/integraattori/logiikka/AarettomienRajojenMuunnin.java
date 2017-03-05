@@ -41,22 +41,22 @@ public class AarettomienRajojenMuunnin {
             alaraja = -Math.PI / 2;
             ylaraja = Math.PI / 2;
             funktionNimi = funktionNimi.replaceAll("x", "(tan x)");
-            funktionNimi += "(1 + (tan x)*(tan x))";
+            funktionNimi += "*(1 + (tan x)*(tan x))";
             funktio.setFunktionNimi(funktionNimi);
             funktio.paivitaFunktio();
 
         } else if (this.alaraja == Double.NEGATIVE_INFINITY) {
             alaraja = -Math.PI / 2;
-            //yla = Double.parseDouble(ylaraja);
+            ylaraja = Math.tan(ylaraja);
             funktionNimi = funktionNimi.replaceAll("x", "(tan x)");
-            funktionNimi += "(1 + (tan x)*(tan x))";
+            funktionNimi += "*(1 + (tan x)*(tan x))";
             funktio.setFunktionNimi(funktionNimi);
             funktio.paivitaFunktio();
         } else if (this.ylaraja == Double.POSITIVE_INFINITY) {
-            //ala = Double.parseDouble(alaraja);
+            alaraja = Math.tan(alaraja);
             ylaraja = Math.PI / 2;
             funktionNimi = funktionNimi.replaceAll("x", "(tan x)");
-            funktionNimi += "(1 + (tan x)*(tan x))";
+            funktionNimi += "*(1 + (tan x)*(tan x))";
             funktio.setFunktionNimi(funktionNimi);
             funktio.paivitaFunktio();
         }

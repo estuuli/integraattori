@@ -20,4 +20,5 @@ Päivä | Tunnit | Kuvaus
 10.02.2017 | 2,5h | Ohjelmointia, graafisen käyttöliittymän aloittelua ja dokumentaatiota
 17.02.2017 | 2,5h | Poikkeuksien ja äärettömien arvojen käsittelyn aloittamista, dokumentaatiota
 24.02.2017 | 4,5h | Poikkeuksien hoitoa, äärettömien arvojen käsittelyä, siivousta, dokumentaatiota
+04.03.2017 | 3,0h | Graafinen käyttöliittymä
 ... | ... | ...
