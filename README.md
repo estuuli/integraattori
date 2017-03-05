@@ -10,3 +10,6 @@ Javalabra-kurssin harjoitustyö. Integraattori integroi numeerisesti eri menetel
 
 [CheckStyle-raportti](https://htmlpreview.github.io/?https://github.com/estuuli/integraattori/blob/master/dokumentaatio/checkstyle-raportti/site/checkstyle.html)
 
+[JavaDoc](https://htmlpreview.github.io/?https://github.com/estuuli/integraattori/blob/master/javadoc/apidocs/index.html)
+
+[Testausdokumentaatio] (dokumentaatio/testausdokumentaatio.md)
