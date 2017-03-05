@@ -44,8 +44,10 @@ Laskija
 ![Luokkakaavio](/dokumentaatio/luokkakaavio4.png)
 
 ## Sekvenssikaaviot
-**Laskija antaa integroitavan funktion:**
-![Sekvenssikaavio1](/dokumentaatio/funktionAntaminen.png)
+**Laskija antaa integroitavan funktion ja parametrit:**
 
-**Laskija antaa integrointirajat:**
-![Sekvenssikaavio2](/dokumentaatio/kayttotapaus2.png)
+![Sekvenssikaavio1](/dokumentaatio/Sekvenssikaavio_annaParametrit.jpg)
+
+**Laskija näkee vastauksen:**
+
+![Sekvenssikaavio2](/dokumentaatio/Sekvenssikaavio_vastaus.png)
